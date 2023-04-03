@@ -1,0 +1,643 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>PayApp - Finance, Banking, Wallet, Crypto Mobile PWA</title>
+<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/bootstrap-icons.css">
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="_manifest.json">
+<meta id="theme-check" name="theme-color" content="#FFFFFF">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png"></head>
+<script type="text/javascript" src="scripts/view.js"></script>
+
+<body class="theme-light">
+
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+
+<!-- Page Wrapper-->
+<div id="page">
+    
+    <!-- Footer Bar -->
+    <div id="footer-bar" class="footer-bar-1 footer-bar-detached">
+        <a href="page-wallet.html"><i class="bi bi-people-fill"></i><span>Group</span></a>
+        <a href="page-activity.html"><i class="bi bi-graph-up"></i><span>Activity</span></a>
+        <a  href="index.html"  class="circle-nav-2"><i class="bi bi-house-fill"></i><span>Home</span></a>
+        <a href="page-payments.html"><i class="bi bi-receipt"></i><span>Meetings</span></a>
+        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-sidebar"><i class="bi bi-three-dots"></i><span>More</span></a>
+    </div>
+
+    <!-- Page Content - Only Page Elements Here-->
+    <div class="page-content footer-clear">
+
+        <!-- Page Title-->
+        <div class="pt-3">
+            <div class="page-title d-flex">
+                <div class="align-self-center me-auto">
+                    
+                    <p class="mb-0 color-blue-dark font-15">View Group Account</p>
+                </div>
+                <div class="align-self-center ms-auto">
+                    <a href="#"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#menu-notifications"
+                    class="icon gradient-blue color-white shadow-bg shadow-bg-xs rounded-m">
+                        <i class="bi bi-bell-fill font-17"></i>
+                        <em class="badge bg-red-dark color-white scale-box">3</em>
+                    </a>
+                    <!-- <a href="page-reports.html"
+                    class="icon gradient-blue color-white shadow-bg shadow-bg-xs rounded-m">
+                        <i class="bi bi-plus-lg font-17"></i>
+                    </a> -->
+                    <a href="#"
+                    data-bs-toggle="dropdown"
+                    class="icon gradient-blue shadow-bg shadow-bg-s rounded-m">
+                        <img src="images/pictures/25s.jpg" width="45" class="rounded-m" alt="img">
+                    </a>
+                    <!-- Page Title Dropdown Menu-->
+                    <div class="dropdown-menu">
+                        <div class="card card-style shadow-m mt-1 me-1">
+                            <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
+                                <a href="page-wallet.html" class="list-group-item">
+                                    <i class="has-bg gradient-green shadow-bg shadow-bg-xs color-white rounded-xs bi bi-credit-card"></i>
+                                    <strong class="font-13">Group</strong>
+                                </a>
+                                <a href="page-activity.html" class="list-group-item">
+                                    <i class="has-bg gradient-blue shadow-bg shadow-bg-xs color-white rounded-xs bi bi-graph-up"></i>
+                                    <strong class="font-13">Activity</strong>
+                                </a>
+                                <a href="page-profile.html" class="list-group-item">
+                                    <i class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
+                                    <strong class="font-13">Account</strong>
+                                </a>
+                                <a href="page-signin-1.html" class="list-group-item">
+                                    <i class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"></i>
+                                    <strong class="font-13">Log Out</strong>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--  -->
+
+        <div class="container">
+
+            <div class="row">
+                <div class="pt-3 pb-4">
+                    <div class="splide__slide">
+                                <div id="set-card-color" class="" style="height:200px">
+                                    <div class="card-top p-3">
+                                        <!-- <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-cardThree" class="icon icon-xxs bg-white color-black float-end"><i class="bi bi-three-dots font-18"></i></a> -->
+                                    </div>
+                                    <div class="card-center">
+                                        <div class="bg-theme px-3 py-2 rounded-end d-inline-block">
+                                            <h1 class="font-13 my-n1">
+                                                <a class="color-theme" data-bs-toggle="collapse" href="#balance3" aria-controls="balance3">Check Balance</a>
+                                            </h1>
+                                            <div class="collapse" id="balance3"><h2  id="get-card-Amount" class="color-theme font-26"></h2></div>
+                                        </div>
+                                    </div>
+                                    <strong style="letter-spacing: 3px;" id="get-card-h" class="card-top no-click font-12 p-3 color-white "></strong>
+                                    <strong style="letter-spacing: 3px;" id="get-card-b" class="card-bottom no-click p-3 text-start color-white  "></strong>
+                                    <strong style="letter-spacing: 3px;" id="get-card-Number" class="card-bottom no-click p-3 text-end color-white "></strong>
+                                    <div class="card-overlay bg-black opacity-50"></div>
+                                </div>
+                        </div>
+        
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--  -->
+        
+
+
+
+        <!--Account Activity Notification-->
+
+        <!-- Icons -->
+
+        <div class="content py-2">
+            <div class="d-flex text-center">
+                <div class="me-auto">
+                    <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-pay" class="icon icon-xxl rounded-m bg-theme shadow-m"><i class="font-28 color-green-dark bi bi-arrow-up-circle"></i></a>
+                    <h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Pay</h6>
+                </div>
+                <div class="m-auto">
+                    <a href="#" data-bs-toggle="offcanvas" data-bs-target="#pop-main-manu" class="icon icon-xxl rounded-m bg-theme shadow-m"><i class="font-28 color-red-dark bi bi-arrow-down-circle"></i></a>
+                    <h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Claim</h6>
+                </div>
+                <div data-bs-toggle="offcanvas" data-bs-target="#purchase-options" class="m-auto">
+                    <a href="#" class="icon icon-xxl rounded-m bg-theme shadow-m"><i class="font-28 color-blue-dark bi bi-arrow-repeat"></i></a>
+                    <h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Loan</h6>
+                </div>
+                <div data-bs-toggle="offcanvas" data-bs-target="#view-more" class="m-auto">
+                    <a href="#" class="icon icon-xxl rounded-m bg-theme shadow-m"><i class="font-28 color-brown-dark bi bi-filter-circle"></i></a>
+                    <h6 class="font-13 opacity-80 font-500 mb-0 pt-2">More</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- End Icons -->
+       
+        
+        <div class="card card-style">
+            <div class="content">
+                <div class="tabs tabs-pill" id="tab-group-2">
+                    <div class="tab-controls rounded-m p-1 overflow-visible">
+                        <a class="font-13 rounded-m shadow-bg shadow-bg-s" data-bs-toggle="collapse" href="#tab-4" aria-expanded="true">Money</a>
+                        <a class="font-13 rounded-m shadow-bg shadow-bg-s" data-bs-toggle="collapse" href="#tab-5" aria-expanded="false">Loans</a>
+                        
+                    </div>
+                    <div class="mt-3"></div>
+                    
+                    <!-- Tab Group 1 -->
+
+                    <div class="container  rounded shadow-bg">
+                        <div class="collapse show" id="tab-4" data-bs-parent="#tab-group-2">
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-1">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Amount Paid</h5>
+                                    
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">R0.00</h4>
+                                   
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-2">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark ">Amount Owing</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">R3 750.31</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-2">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Membership Refence No</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">115714259</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+    
+                            
+    
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-2">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Joining Fee</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">R0.00</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-2">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Contribution Fee</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">R0.00</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+    
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-2">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Opening Balance</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">R0.00</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+    
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-2">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Current Balance</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">R496 552.08</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-2">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Locked Amount</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">-R2 564.23</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+    
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-2">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Interest(Past 12 Months)</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">R13 450.34</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+                            
+                            
+                            
+                            
+        
+                            
+                        </div>
+
+                    </div>
+           
+                    <!-- Tab Group 2 -->
+                    <div class="container  rounded shadow-b">
+
+                        <div class="collapse" id="tab-5" data-bs-parent="#tab-group-2">
+
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-1">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Number Of Approved Loans</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">1</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-1">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Total Loans Approved Amount</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">R500.00</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+
+                            <a href="#" class="d-flex py-1" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-1">
+                                
+                                <div class="align-self-center ps-1">
+                                    <h5 class="pt-1 mb-n1 color-dark-dark">Total Loan Profit</h5>
+                                   
+                                </div>
+                                <div class="align-self-center ms-auto text-end">
+                                    <h4 class="pt-1 mb-n1 color-blue-dark font-15">R29.17</h4>
+                                    
+                                </div>
+                            </a>
+                            <div class="divider my-2 opacity-50"></div>
+
+                            
+                        
+                        
+                        
+                        
+                        </div>
+                    </div>
+                    <!-- Tab Group 3 -->
+                
+                </div>
+            </div>
+        </div>
+        
+        
+
+
+    </div>
+    <!-- End of Page Content-->
+
+    <!-- Off Canvas and Menu Elements-->
+    <!-- Always outside the Page Content-->
+
+    <!-- Main Sidebar Menu -->
+    <div id="menu-sidebar"
+        data-menu-active="nav-pages"
+        data-menu-load="menu-sidebar.html"
+        class="offcanvas offcanvas-start offcanvas-detached rounded-m">
+    </div>
+	
+	<!-- Highlights Menu -->
+	<div id="menu-highlights"
+		data-menu-load="menu-highlights.html"
+		class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+	</div>
+
+    <!-- Transaction Action Sheet -->
+    <div id="menu-activity-1" class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        <!-- menu-size will be the dimension of your menu. If you set it to smaller than your content it will scroll-->
+        <div class="menu-size" style="height:385px;">
+            <div class="content">
+                <a href="#" class="d-flex py-1 pb-4">
+                    <div class="align-self-center">
+                        <span class="icon gradient-red me-2 shadow-bg shadow-bg-s rounded-s">
+                            <img src="images/pictures/6s.jpg" width="45" class="rounded-s" alt="img"></span>
+                    </div>
+                    <div class="align-self-center ps-1">
+                        <h5 class="pt-1 mb-n1">Karla Black</h5>
+                        <p class="mb-0 font-11 opacity-70">12th March <span class="copyright-year"></span></p>
+                    </div>
+                    <div class="align-self-center ms-auto text-end">
+                        <h4 class="pt-1 font-14 mb-n1 color-green-dark">APPROVED</h4>
+                        <p class="mb-0 font-11"> ID-315-6123</p>
+                    </div>
+                </a>
+                <div class="row">
+                    <strong class="col-5 color-theme">Type</strong>
+                    <strong class="col-7 text-end">Incoming</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Date</strong>
+                    <strong class="col-7 text-end">12th March</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Amount</strong>
+                    <strong class="col-7 text-end color-highlight">$150.55</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Sent Via</strong>
+                    <strong class="col-7 text-end">Credit Card</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Added To</strong>
+                    <strong class="col-7 text-end">Main Account</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                </div>
+            </div>
+            <a href="#" data-bs-dismiss="offcanvas" class="mx-3 btn btn-full gradient-highlight shadow-bg shadow-bg-s">Back to Activity</a>
+        </div>
+    </div>
+    
+    <!-- Transaction Action Sheet -->
+    <div id="menu-activity-2" class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        <!-- menu-size will be the dimension of your menu. If you set it to smaller than your content it will scroll-->
+        <div class="menu-size" style="height:385px;">
+            <div class="content">
+                <a href="#" class="d-flex py-1 pb-4">
+                    <div class="align-self-center">
+                        <span class="icon rounded-s me-2 gradient-brown shadow-bg shadow-bg-xs"><i class="bi bi-wallet color-white"></i></span>
+                    </div>
+                    <div class="align-self-center ps-1">
+                        <h5 class="pt-1 mb-n1">Withdrawal</h5>
+                        <p class="mb-0 font-11 opacity-70">12th March <span class="copyright-year"></span></p>
+                    </div>
+                    <div class="align-self-center ms-auto text-end">
+                        <h4 class="pt-1 font-14 mb-n1 color-green-dark">APPROVED</h4>
+                        <p class="mb-0 font-11"> ID-315-6123</p>
+                    </div>
+                </a>
+                <div class="row">
+                    <strong class="col-5 color-theme">Type</strong>
+                    <strong class="col-7 text-end">Withdrawal</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Date</strong>
+                    <strong class="col-7 text-end">12th March</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Amount</strong>
+                    <strong class="col-7 text-end color-highlight">$345.31</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Withdrawn To</strong>
+                    <strong class="col-7 text-end">Credit Card</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Withdraw From</strong>
+                    <strong class="col-7 text-end">Main Account</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                </div>
+            </div>
+            <a href="#" data-bs-dismiss="offcanvas" class="mx-3 btn btn-full gradient-highlight shadow-bg shadow-bg-s">Back to Activity</a>
+        </div>
+    </div>
+    
+    <!-- Transaction Action Sheet -->
+    <div id="menu-activity-3" class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        <!-- menu-size will be the dimension of your menu. If you set it to smaller than your content it will scroll-->
+        <div class="menu-size" style="height:385px;">
+            <div class="content">
+                <a href="#" class="d-flex py-1 pb-4">
+                    <div class="align-self-center">
+                        <span class="icon rounded-s me-2 gradient-orange shadow-bg shadow-bg-xs"><i class="bi bi-google color-white"></i></span>
+                    </div>
+                    <div class="align-self-center ps-1">
+                        <h5 class="pt-1 mb-n1">Google Ads</h5>
+                        <p class="mb-0 font-11 opacity-70">14th March <span class="copyright-year"></span></p>
+                    </div>
+                    <div class="align-self-center ms-auto text-end">
+                        <h4 class="pt-1 font-14 mb-n1 color-red-dark">RECEIVED</h4>
+                        <p class="mb-0 font-11"> ID-315-6123</p>
+                    </div>
+                </a>
+                <div class="row">
+                    <strong class="col-5 color-theme">Type</strong>
+                    <strong class="col-7 text-end">Payment</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Paid To</strong>
+                    <strong class="col-7 text-end">GOOGLE LLC LTD</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Date</strong>
+                    <strong class="col-7 text-end">12th March</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Amount</strong>
+                    <strong class="col-7 text-end color-highlight">$324.55</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Paid From</strong>
+                    <strong class="col-7 text-end">Credit Card</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                </div>
+            </div>
+            <a href="#" data-bs-dismiss="offcanvas" class="mx-3 btn btn-full gradient-highlight shadow-bg shadow-bg-s">Back to Activity</a>
+        </div>
+    </div>
+    
+     <!-- Transaction Action Sheet -->
+    <div id="menu-activity-4" class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        <!-- menu-size will be the dimension of your menu. If you set it to smaller than your content it will scroll-->
+        <div class="menu-size" style="height:380px;">
+            <div class="content">
+                <a href="#" class="d-flex py-1 pb-4">
+                    <div class="align-self-center">
+                        <span class="icon rounded-s me-2 gradient-green shadow-bg shadow-bg-xs"><i class="bi bi-person-circle font-18 color-white"></i></span>
+                    </div>
+                    <div class="align-self-center ps-1">
+                        <h5 class="pt-1 mb-n1">Karla Black</h5>
+                        <p class="mb-0 font-11 opacity-70">Awaiting Approval</p>
+                    </div>
+                    <div class="align-self-center ms-auto text-end">
+                        <h4 class="pt-1 font-14 mb-n1 color-yellow-dark">PENDING</h4>
+                        <p class="mb-0 font-11"> ID-315-6123</p>
+                    </div>
+                </a>
+                <div class="row">
+                    <strong class="col-5 color-theme">Type</strong>
+                    <strong class="col-7 text-end">Transfer</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Paid To</strong>
+                    <strong class="col-7 text-end">GOOGLE LLC LTD</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Date</strong>
+                    <strong class="col-7 text-end">12th March</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Amount</strong>
+                    <strong class="col-7 text-end color-highlight">$324.55</strong>
+                    <div class="col-12 mt-2 mb-2"><div class="divider my-0"></div></div>
+                    <strong class="col-5 color-theme">Paid From</strong>
+                    <strong class="col-7 text-end">Credit Card</strong>
+                    <div class="col-12 mt-2 mb-4"><div class="divider my-0"></div></div>
+                    <div class="col-6">
+                        <a href="#" data-bs-dismiss="offcanvas" class="btn btn-s btn-full gradient-green shadow-bg shadow-bg-xs">Approve</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#" data-bs-dismiss="offcanvas" class="btn btn-s btn-full gradient-red shadow-bg shadow-bg-xs">Reject</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Transaction Action Sheet -->
+    <div id="menu-activity-5" class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        <!-- menu-size will be the dimension of your menu. If you set it to smaller than your content it will scroll-->
+        <div class="menu-size" style="height:320px;">
+            <div class="content">
+                <a href="#" class="d-flex py-1 pb-4">
+                    <div class="align-self-center">
+                        <span class="icon rounded-s me-2 gradient-blue shadow-bg shadow-bg-xs"><i class="bi bi-lock-fill font-18 color-white"></i></span>
+                    </div>
+                    <div class="align-self-center ps-1">
+                        <h5 class="pt-1 mb-n1">Verification</h5>
+                        <p class="mb-0 font-11 opacity-70">Action Required</p>
+                    </div>
+                    <div class="align-self-center ms-auto text-end">
+                        <h4 class="pt-1 font-14 mb-n1 color-yellow-dark">PENDING</h4>
+                        <p class="mb-0 font-11"> ID-315-6123</p>
+                    </div>
+                </a>
+                <div class="form-custom form-label form-icon mt-3">
+                    <i class="bi bi-person-circle font-14"></i>
+                    <input type="email" class="form-control rounded-xs" id="c32" placeholder="john@domain.com" />
+                    <label for="c32" class="form-label-always-active color-theme font-11">Account Holder Email</label>
+                    <span class="font-10">(required)</span>
+                </div>
+                <div class="form-custom form-label form-icon mt-4">
+                    <i class="bi bi-person-circle font-14"></i>
+                    <input type="number" class="form-control rounded-xs" id="c321" placeholder="ID-125-5132" />
+                    <label for="c321" class="form-label-always-active color-theme font-11">Account Holder Security Code</label>
+                    <span class="font-10">(required)</span>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <a href="#" data-bs-dismiss="offcanvas" class="btn btn-s btn-full gradient-green shadow-bg shadow-bg-xs">Verify</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#" data-bs-dismiss="offcanvas" class="btn btn-s btn-full gradient-blue shadow-bg shadow-bg-xs">Later</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <!-- Push Pop Ups -->
+
+
+    
+    <!-- Push Pop Ups -->
+
+    <div id="view-more" data-menu-load="view-group-more.html"
+        class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+    </div>
+
+    <div id="m-payments" data-menu-load="m-payment.html"
+        class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+    </div>
+
+
+    <div id="menu-pay-on" data-menu-load="m-behalf-payment.html"
+        class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+    </div>
+
+
+    <div id="pop-main-manu" data-menu-load="claim-menu.html"
+    class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+    </div>
+
+    <div id="normal-claim" data-menu-load="normal-claim.html"
+    class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+    </div>
+
+    <div id="behalf-claim" data-menu-load="on-behalf.html"
+    class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+    </div>
+
+
+    <div id="group-claim" data-menu-load="group-claim.html"
+    class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+    </div>
+
+
+
+    <!-- End Pop Ups -->
+
+
+   <!--  -->
+
+   <div id="menu-pay" data-menu-load="pay-opt.html"
+   class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+   </div>
+
+
+
+   <!--  -->
+
+
+
+</div>
+<!-- End of Page ID-->
+
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/custom.js"></script>
+</body>
